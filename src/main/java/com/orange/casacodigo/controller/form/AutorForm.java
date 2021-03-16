@@ -1,5 +1,6 @@
 package com.orange.casacodigo.controller.form;
 
+import com.orange.casacodigo.config.EmailUnico;
 import com.orange.casacodigo.model.Autor;
 import org.hibernate.validator.constraints.Length;
 
@@ -13,32 +14,15 @@ public class AutorForm {
     private String nome;
     @NotBlank
     @Email
+    @EmailUnico
     private String email;
     @NotBlank
-    @Length(max=400)
+    @Size(max=400)
     private String descricao;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
+    public AutorForm(@NotBlank String nome, @NotBlank @Email String email, @NotBlank @Length(max = 400) String descricao) {
         this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
