@@ -18,9 +18,6 @@ public class EmailUnicoValidator implements ConstraintValidator<EmailUnico, Stri
     }
 
     @Override
-    public void initialize(EmailUnico constraint) {}
-
-    @Override
     public boolean isValid(String email, ConstraintValidatorContext context) {
        Optional<Autor> autor = autorRepository.findByEmail(email);
         if (!autor.isPresent()) {
