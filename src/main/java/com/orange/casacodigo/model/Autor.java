@@ -1,6 +1,6 @@
 package com.orange.casacodigo.model;
 
-import com.orange.casacodigo.config.EmailUnico;
+
 import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;

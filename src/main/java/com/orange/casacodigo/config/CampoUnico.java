@@ -7,12 +7,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Constraint(validatedBy = NomeCategoriaValidator.class)
+@Constraint(validatedBy = CampoUnicoValidator.class)
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface NomeCategoriaUnico {
+public @interface CampoUnico {
+
     String message() default
-            "Nome de categoria já cadastrado!";
+      "Campo já cadastrado em nossa base!";
 
     Class<?>[] groups() default {};
 

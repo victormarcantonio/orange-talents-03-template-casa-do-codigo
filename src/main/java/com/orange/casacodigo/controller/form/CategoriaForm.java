@@ -1,6 +1,6 @@
 package com.orange.casacodigo.controller.form;
 
-import com.orange.casacodigo.config.NomeCategoriaUnico;
+import com.orange.casacodigo.config.CampoUnico;
 import com.orange.casacodigo.model.Categoria;
 
 import javax.validation.constraints.NotBlank;
@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 public class CategoriaForm {
 
     @NotBlank
-    @NomeCategoriaUnico
+    @CampoUnico
     private String nome;
 
     public void setNome(String nome) {
