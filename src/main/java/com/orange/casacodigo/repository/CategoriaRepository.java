@@ -1,5 +1,6 @@
 package com.orange.casacodigo.repository;
 
+import com.orange.casacodigo.model.Autor;
 import com.orange.casacodigo.model.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 
