@@ -2,6 +2,7 @@ package com.orange.casacodigo.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.orange.casacodigo.config.CampoUnico;
+import com.orange.casacodigo.model.Autor;
 import com.orange.casacodigo.model.Livro;
 
 import javax.validation.constraints.*;
@@ -16,16 +17,16 @@ public class LivroDetalheDto {
     private BigDecimal preco;
     private int numeroPaginas;
     private String isbn;
-    private String nomeAutor;
+    private AutorDto autor;
 
     public LivroDetalheDto(Livro livro) {
+        this.autor = new AutorDto(livro.getAutor());
         this.titulo = livro.getTitulo();
         this.resumo = livro.getResumo();
         this.sumario = livro.getSumario();
         this.preco = livro.getPreco();
         this.numeroPaginas = livro.getNumeroPaginas();
         this.isbn = livro.getIsbn();
-        this.nomeAutor = livro.getAutor().getNome();
     }
 
     public String getTitulo() {
@@ -52,7 +53,7 @@ public class LivroDetalheDto {
         return isbn;
     }
 
-    public String getNomeAutor() {
-        return nomeAutor;
+    public AutorDto getAutor() {
+        return autor;
     }
 }
