@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 public class CategoriaForm {
 
     @NotBlank
-    @CampoUnico
+    @CampoUnico(domainClass = Categoria.class, fieldName = "nome")
     private String nome;
 
     public void setNome(String nome) {

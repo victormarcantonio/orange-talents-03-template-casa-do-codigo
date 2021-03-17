@@ -14,7 +14,7 @@ public class AutorForm {
     private String nome;
     @NotBlank
     @Email
-    @CampoUnico
+    @CampoUnico(domainClass = Autor.class, fieldName = "email")
     private String email;
     @NotBlank
     @Size(max=400)

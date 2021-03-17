@@ -2,14 +2,12 @@ package com.orange.casacodigo.config;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 @Constraint(validatedBy = CampoUnicoValidator.class)
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
+@Documented
 public @interface CampoUnico {
 
     String message() default
@@ -18,4 +16,8 @@ public @interface CampoUnico {
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
+
+    String fieldName();
+
+    Class<?> domainClass();
 }
