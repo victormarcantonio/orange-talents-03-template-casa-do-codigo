@@ -1,16 +1,15 @@
 package com.orange.casacodigo.controller;
 
+import com.orange.casacodigo.controller.dto.LivroDto;
 import com.orange.casacodigo.controller.form.LivroForm;
 import com.orange.casacodigo.model.Livro;
 import com.orange.casacodigo.repository.AutorRepository;
 import com.orange.casacodigo.repository.CategoriaRepository;
 import com.orange.casacodigo.repository.LivroRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/livros")
@@ -31,5 +30,11 @@ public class LivroController {
        Livro livro = form.converter(autorRepository, categoriaRepository);
        livroRepository.save(livro);
        return livro.toString();
+    }
+
+    @GetMapping
+    public List<LivroDto> listarLivros(){
+       List<Livro> livros = livroRepository.findAll();
+       return LivroDto.converter(livros);
     }
 }

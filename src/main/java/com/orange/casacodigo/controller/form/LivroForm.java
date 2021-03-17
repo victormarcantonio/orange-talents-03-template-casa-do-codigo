@@ -32,7 +32,7 @@ public class LivroForm {
     @CampoUnico(domainClass = Livro.class, fieldName = "isbn")
     private String isbn;
     @Future
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern= "dd/MM/yyyy")
+    @JsonFormat(pattern= "dd/MM/yyyy")
     private LocalDate dataPublicacao;
     @NotNull
     private Long categoriaId;
@@ -51,6 +51,10 @@ public class LivroForm {
     }
 
 
+    /**
+     *
+     * Setter criado pois o Jackson não consegue desserializar a Data pelo construtor
+     */
     public void setDataPublicacao(LocalDate dataPublicacao) {
         this.dataPublicacao = dataPublicacao;
     }
