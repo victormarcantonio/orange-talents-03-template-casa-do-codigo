@@ -2,6 +2,7 @@ package com.orange.casacodigo.controller.form;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.orange.casacodigo.config.CampoUnico;
+import com.orange.casacodigo.config.ExistsById;
 import com.orange.casacodigo.model.Autor;
 import com.orange.casacodigo.model.Categoria;
 import com.orange.casacodigo.model.Livro;
@@ -11,8 +12,6 @@ import com.orange.casacodigo.repository.CategoriaRepository;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Optional;
 
 public class LivroForm {
     @NotBlank
@@ -34,9 +33,10 @@ public class LivroForm {
     @Future
     @JsonFormat(pattern= "dd/MM/yyyy")
     private LocalDate dataPublicacao;
-    @NotNull
+    @ExistsById(domainClass = Categoria.class, fieldName = "id")
     private Long categoriaId;
     @NotNull
+    @ExistsById(domainClass = Autor.class, fieldName = "id")
     private Long autorId;
 
     public LivroForm(@NotBlank String titulo, @NotBlank @Size(max = 500) String resumo, String sumario, @NotBlank @DecimalMin("20.00") BigDecimal preco, @NotBlank @Size(min = 100) int numeroPaginas, @NotBlank String isbn,  @NotNull Long categoriaId, @NotNull Long autorId) {

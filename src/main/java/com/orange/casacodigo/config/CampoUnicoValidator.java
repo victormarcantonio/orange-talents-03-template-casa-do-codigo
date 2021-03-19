@@ -18,9 +18,6 @@ import java.util.Optional;
 
 public class CampoUnicoValidator implements ConstraintValidator<CampoUnico, String> {
 
-
-
-
     private String domainAttribute;
     private Class<?> klass;
     @PersistenceContext

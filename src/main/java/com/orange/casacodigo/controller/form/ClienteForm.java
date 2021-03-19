@@ -1,6 +1,8 @@
 package com.orange.casacodigo.controller.form;
 
 import com.orange.casacodigo.config.CampoUnico;
+import com.orange.casacodigo.config.ExistsById;
+import com.orange.casacodigo.config.ValidaEstadoPais;
 import com.orange.casacodigo.model.Cliente;
 import com.orange.casacodigo.model.Estado;
 import com.orange.casacodigo.model.Pais;
@@ -15,6 +17,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 
+@ValidaEstadoPais
 public class ClienteForm {
 
     @Email
@@ -38,6 +41,7 @@ public class ClienteForm {
     @NotBlank
     private String cidade;
     @NotNull
+    @ExistsById(domainClass = Pais.class, fieldName = "id")
     private Long paisId;
     private Long estadoId;
     @NotBlank
@@ -59,6 +63,13 @@ public class ClienteForm {
         this.cep = cep;
     }
 
+    public Long getPaisId() {
+        return paisId;
+    }
+
+    public Long getEstadoId() {
+        return estadoId;
+    }
 
     public Cliente converter(PaisRepository paisRepository, EstadoRepository estadoRepository){
         Pais pais = paisRepository.getOne(paisId);
