@@ -19,7 +19,6 @@ public class ExistsByIdValidator implements ConstraintValidator<ExistsById, Long
     private EntityManager manager;
 
 
-
     @Override
     public void initialize(ExistsById params) {
         domainAttribute = params.fieldName();

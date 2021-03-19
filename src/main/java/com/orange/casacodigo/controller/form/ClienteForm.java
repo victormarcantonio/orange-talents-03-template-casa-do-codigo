@@ -1,6 +1,7 @@
 package com.orange.casacodigo.controller.form;
 
 import com.orange.casacodigo.config.CampoUnico;
+import com.orange.casacodigo.config.CpfCnpj;
 import com.orange.casacodigo.config.ExistsById;
 import com.orange.casacodigo.config.ValidaEstadoPais;
 import com.orange.casacodigo.model.Cliente;
@@ -14,7 +15,6 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @ValidaEstadoPais
@@ -30,9 +30,7 @@ public class ClienteForm {
     private String sobrenome;
     @NotBlank
     @CampoUnico(domainClass = Cliente.class, fieldName = "documento")
-    @Pattern(regexp =("(\\d{2}\\.\\d{3}\\.\\d{3}\\/\\d{4}\\-\\d{2})|(\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2})"),
-            message = "Campo inválido. Utilizar o padrão {000.000.000-00} para cpf e o padrão {00.000.000/0000-00} para cnpj")
-
+    @CpfCnpj
     private String documento;
     @NotBlank
     private String endereco;

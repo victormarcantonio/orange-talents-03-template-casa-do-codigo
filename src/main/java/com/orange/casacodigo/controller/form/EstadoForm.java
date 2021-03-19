@@ -1,6 +1,7 @@
 package com.orange.casacodigo.controller.form;
 
 import com.orange.casacodigo.config.CampoUnico;
+import com.orange.casacodigo.config.ExistsById;
 import com.orange.casacodigo.model.Estado;
 import com.orange.casacodigo.model.Pais;
 import com.orange.casacodigo.repository.PaisRepository;
@@ -12,7 +13,7 @@ public class EstadoForm {
     @NotBlank
     @CampoUnico(domainClass = Estado.class, fieldName = "nome")
     private String nome;
-    @NotNull
+    @ExistsById(domainClass = Pais.class, fieldName = "id")
     private Long paisId;
 
     public EstadoForm(@NotBlank String nome, @NotNull Long paisId) {
