@@ -2,6 +2,7 @@ package com.orange.casacodigo.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.Objects;
 
 @Entity
 public class Pais {
@@ -19,6 +20,7 @@ public class Pais {
     public Pais(@NotBlank String nome) {
         this.nome = nome;
     }
+
 
     @Override
     public String toString() {

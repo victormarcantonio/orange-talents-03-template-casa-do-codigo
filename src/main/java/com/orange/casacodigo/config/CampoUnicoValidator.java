@@ -20,8 +20,11 @@ public class CampoUnicoValidator implements ConstraintValidator<CampoUnico, Stri
 
     private String domainAttribute;
     private Class<?> klass;
-    @PersistenceContext
-    EntityManager manager;
+    private EntityManager manager;
+
+    public CampoUnicoValidator(EntityManager manager) {
+        this.manager = manager;
+    }
 
     @Override
     public void initialize(CampoUnico params) {

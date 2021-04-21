@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface EstadoRepository extends JpaRepository<Estado, Long> {
 
     List<Estado>findByPais(Pais pais);
+
 }

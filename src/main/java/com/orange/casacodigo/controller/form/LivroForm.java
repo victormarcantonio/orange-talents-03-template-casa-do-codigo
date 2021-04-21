@@ -50,6 +50,41 @@ public class LivroForm {
         this.autorId = autorId;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getResumo() {
+        return resumo;
+    }
+
+    public String getSumario() {
+        return sumario;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public int getNumeroPaginas() {
+        return numeroPaginas;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public LocalDate getDataPublicacao() {
+        return dataPublicacao;
+    }
+
+    public Long getCategoriaId() {
+        return categoriaId;
+    }
+
+    public Long getAutorId() {
+        return autorId;
+    }
 
     /**
      *

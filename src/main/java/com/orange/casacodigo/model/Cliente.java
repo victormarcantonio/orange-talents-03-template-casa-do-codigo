@@ -22,7 +22,6 @@ public class Cliente {
     @NotBlank
     private String sobrenome;
     @NotBlank
-    @Pattern(regexp =("(\\d{2}\\.\\d{3}\\.\\d{3}\\/\\d{4}\\-\\d{2})|(\\d{3}\\.\\d{3}\\.\\d{3}\\-\\d{2})"))
     @Column(unique = true)
     private String documento;
     @NotBlank
@@ -41,20 +40,6 @@ public class Cliente {
     @NotBlank
     private String cep;
 
-    public Cliente(@NotBlank String email, @NotBlank String nome, @NotBlank String sobrenome, @NotBlank @CPF String documento, @NotBlank String endereco, @NotBlank String complemento, @NotBlank String cidade, @NotNull Pais pais, @NotNull Estado estado, @NotBlank String telefone, @NotBlank String cep) {
-        this.email = email;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.documento = documento;
-        this.endereco = endereco;
-        this.complemento = complemento;
-        this.cidade = cidade;
-        this.pais = pais;
-        this.estado = estado;
-        this.telefone = telefone;
-        this.cep = cep;
-    }
-
     public Cliente(@NotBlank String email, @NotBlank String nome, @NotBlank String sobrenome, @NotBlank @CNPJ @CPF String documento, @NotBlank String endereco, @NotBlank String complemento, @NotBlank String cidade, @NotNull Pais pais, @NotBlank String telefone, @NotBlank String cep) {
         this.email = email;
         this.nome = nome;
@@ -66,6 +51,14 @@ public class Cliente {
         this.pais = pais;
         this.telefone = telefone;
         this.cep = cep;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public Estado getEstado() {
+        return estado;
     }
 
     @Override

@@ -21,6 +21,14 @@ public class EstadoForm {
         this.paisId = paisId;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public Long getPaisId() {
+        return paisId;
+    }
+
     public Estado converter (PaisRepository paisRepository){
         Pais pais = paisRepository.getOne(paisId);
         return new Estado(nome, pais);

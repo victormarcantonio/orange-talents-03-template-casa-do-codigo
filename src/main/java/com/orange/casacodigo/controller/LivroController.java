@@ -10,6 +10,7 @@ import com.orange.casacodigo.repository.LivroRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +30,7 @@ public class LivroController {
     }
 
     @PostMapping
+    @Transactional
     public String cadastrar(@RequestBody @Valid LivroForm form){
        Livro livro = form.converter(autorRepository, categoriaRepository);
        livroRepository.save(livro);

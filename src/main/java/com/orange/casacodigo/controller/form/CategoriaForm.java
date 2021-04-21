@@ -1,5 +1,6 @@
 package com.orange.casacodigo.controller.form;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.orange.casacodigo.config.CampoUnico;
 import com.orange.casacodigo.model.Categoria;
 
@@ -13,6 +14,10 @@ public class CategoriaForm {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public Categoria converter() {

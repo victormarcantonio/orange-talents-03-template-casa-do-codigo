@@ -9,6 +9,7 @@ import com.orange.casacodigo.repository.EstadoRepository;
 import com.orange.casacodigo.repository.PaisRepository;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class EstadoController {
     }
 
     @PostMapping
+    @Transactional
     public String cadastrar(@RequestBody @Valid EstadoForm form){
         Estado estado = form.converter(paisRepository);
         estadoRepository.save(estado);

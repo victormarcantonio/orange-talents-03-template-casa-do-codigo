@@ -27,11 +27,11 @@ public class ExistsByIdValidator implements ConstraintValidator<ExistsById, Long
 
     @Override
     public boolean isValid(Long id, ConstraintValidatorContext context) {
-        Query query = manager.createQuery("select 1 from " +klass.getName()+" where " +domainAttribute+"=:value");
-        query.setParameter("value", id);
-        List<?> list = query.getResultList();
-        if (list.isEmpty()) {
-            return false;
+        if(id!=null) {
+            Query query = manager.createQuery("select 1 from " + klass.getName() + " where " + domainAttribute + "=:value");
+            query.setParameter("value", id);
+            List<?> list = query.getResultList();
+            return !list.isEmpty();
         }
         return true;
 

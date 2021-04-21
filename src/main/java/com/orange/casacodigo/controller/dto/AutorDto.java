@@ -18,9 +18,6 @@ public class AutorDto {
         this.descricao = autor.getDescricao();
     }
 
-
-
-
     public String getNome() {
         return nome;
     }

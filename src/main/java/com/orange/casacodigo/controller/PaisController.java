@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @RestController
@@ -21,6 +22,7 @@ public class PaisController {
     }
 
     @PostMapping
+    @Transactional
     public String cadastrar(@RequestBody @Valid PaisForm form){
        Pais pais = new Pais(form.getNome());
        paisRepository.save(pais);
