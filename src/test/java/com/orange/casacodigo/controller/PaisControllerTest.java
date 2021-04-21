@@ -3,6 +3,9 @@ package com.orange.casacodigo.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.orange.casacodigo.controller.form.PaisForm;
+import com.orange.casacodigo.repository.PaisRepository;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,9 @@ public class PaisControllerTest {
 
     @Autowired
     ObjectMapper jsonMapper;
+
+    @Autowired
+    PaisRepository paisRepository;
 
     @DisplayName("Deve retornar 200 ao cadastrar país")
     @Test

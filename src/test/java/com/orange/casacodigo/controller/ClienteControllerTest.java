@@ -8,8 +8,12 @@ import com.orange.casacodigo.model.Pais;
 import com.orange.casacodigo.repository.ClienteRepository;
 import com.orange.casacodigo.repository.EstadoRepository;
 import com.orange.casacodigo.repository.PaisRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,6 +24,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@ExtendWith(MockitoExtension.class)
 public class ClienteControllerTest {
 
     @Autowired
@@ -31,19 +36,11 @@ public class ClienteControllerTest {
     @Autowired
     PaisRepository paisRepository;
 
-    @Autowired
-    private EstadoRepository estadoRepository;
-    @Autowired
-    private ClienteRepository clienteRepository;
-    @Autowired
-    private PertenceAPaisValidator pertenceAPaisValidator;
-
 
     @DisplayName("Deve cadastrar cliente")
     @Test
     void teste01() throws Exception {
-
-        Pais pais = new Pais("Brasil");
+        Pais pais = new Pais("Espanha");
         paisRepository.save(pais);
         mockMvc.perform(MockMvcRequestBuilders.post("/clientes")
         .content(json(new ClienteForm("vitin@email.com","victor","marco","526.911.750-90","rua fudalga","ap 14", "SP",1L,"hdewde","12345")))
