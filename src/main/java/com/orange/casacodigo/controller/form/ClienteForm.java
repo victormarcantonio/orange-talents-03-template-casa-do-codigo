@@ -3,7 +3,6 @@ package com.orange.casacodigo.controller.form;
 import com.orange.casacodigo.config.CampoUnico;
 import com.orange.casacodigo.config.CpfCnpj;
 import com.orange.casacodigo.config.ExistsById;
-import com.orange.casacodigo.config.ValidaEstadoPais;
 import com.orange.casacodigo.model.Cliente;
 import com.orange.casacodigo.model.Estado;
 import com.orange.casacodigo.model.Pais;
@@ -15,7 +14,6 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 import java.util.Optional;
 
 public class ClienteForm {
